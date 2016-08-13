@@ -34,15 +34,11 @@ defmodule LinkChecker.CheckControllerTest do
     assert_response conn, url_with_status(202), 404, 202
   end
 
-  test "4xx codes get passed on", %{conn: conn} do
-    for status <- 400..431 do
-      assert_response conn, url_with_status(status), status
-    end
-  end
-
-  test "5xx are passed through", %{conn: conn} do
-    for status <- 500..511 do
-      assert_response conn, url_with_status(status), status
+  test "4xx and 5xx codes get passed through", %{conn: conn} do
+    for range <- [400..431, 500..511, 520..526] do
+      for status <- range do
+        assert_response conn, url_with_status(status), status
+      end
     end
   end
 
