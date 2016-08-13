@@ -20,11 +20,6 @@ defmodule LinkChecker.ConnCase do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
 
-      alias LinkChecker.Repo
-      import Ecto
-      import Ecto.Changeset
-      import Ecto.Query
-
       import LinkChecker.Router.Helpers
 
       # The default endpoint for testing
@@ -33,12 +28,6 @@ defmodule LinkChecker.ConnCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(LinkChecker.Repo)
-
-    unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(LinkChecker.Repo, {:shared, self()})
-    end
-
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 end

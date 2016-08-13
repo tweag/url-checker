@@ -8,12 +8,3 @@ config :link_checker, LinkChecker.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
-
-# Configure your database
-config :link_checker, LinkChecker.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "link_checker_test",
-  hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox

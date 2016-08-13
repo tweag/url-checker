@@ -16,23 +16,11 @@ defmodule LinkChecker.Web do
   below.
   """
 
-  def model do
-    quote do
-      use Ecto.Schema
-
-      import Ecto
-      import Ecto.Changeset
-      import Ecto.Query
-    end
-  end
-
   def controller do
     quote do
       use Phoenix.Controller
 
       alias LinkChecker.Repo
-      import Ecto
-      import Ecto.Query
 
       import LinkChecker.Router.Helpers
       import LinkChecker.Gettext
@@ -66,8 +54,6 @@ defmodule LinkChecker.Web do
       use Phoenix.Channel
 
       alias LinkChecker.Repo
-      import Ecto
-      import Ecto.Query
       import LinkChecker.Gettext
     end
   end
