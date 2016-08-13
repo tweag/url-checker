@@ -21,28 +21,7 @@ defmodule LinkChecker.CheckControllerTest do
     assert_response conn, url_with_status(200), 200
   end
 
-  test "a redirect to a success", %{conn: conn} do
-    assert_response conn, httpbin("redirect/2"), 200
-  end
-
-  test "a redirect to an error", %{conn: conn} do
-    error_url = url_with_status(400)
-    assert_response conn, httpbin("redirect-to?url=#{error_url}"), 400
-  end
-
-  test "202 No Content is an error", %{conn: conn} do
-    assert_response conn, url_with_status(202), 404, 202
-  end
-
-  test "4xx and 5xx codes get passed through", %{conn: conn} do
-    for range <- [400..431, 500..511, 520..526] do
-      for status <- range do
-        assert_response conn, url_with_status(status), status
-      end
-    end
-  end
-
-  test "a host that does not exist returns 404", %{conn: conn} do
-    assert_response conn, "http://doesnotexist-3453532342435.com", 404, 0
+  test "a failed response", %{conn: conn} do
+    assert_response conn, url_with_status(400), 400
   end
 end

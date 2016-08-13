@@ -38,6 +38,7 @@ defmodule LinkChecker.Mixfile do
       {:phoenix_html, "~> 2.6"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:phoenix_pubsub, "~> 1.0"},
+      {:redix, "~> 0.4.0"},
     ]
   end
 end
