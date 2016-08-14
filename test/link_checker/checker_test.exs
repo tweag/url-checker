@@ -53,4 +53,36 @@ defmodule LinkChecker.CheckerTest do
     assert result[:return] == 404
     assert result[:report][:status] == 0
   end
+
+  test "accepts a module definition for HTTP provider [sanity check]" do
+    assert_raise UndefinedFunctionError, fn ->
+      check(url_with_status(200), http: :none)
+    end
+  end
+
+  test "caches successful results" do
+    url = url_with_status(200)
+    cache = Cache.Memory.new
+
+    with_http    = fn -> check(url, cache: cache) end
+    without_http = fn -> check(url, cache: cache, http: :none) end
+
+    original_result = with_http.()
+    cached_result   = without_http.()
+
+    assert original_result == cached_result
+  end
+
+  test "does not cache unsuccessful results" do
+    good_url = url_with_status(200)
+    bad_url  = url_with_status(400)
+
+    cache = Cache.Memory.new
+
+    check(good_url, cache: cache)
+    check(bad_url,  cache: cache)
+
+    {:found, _} = Cache.get(cache, good_url)
+    :not_found  = Cache.get(cache, bad_url)
+  end
 end

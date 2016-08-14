@@ -1,9 +1,10 @@
 defmodule LinkChecker.Checker do
   def check(url, opts \\ []) do
     cache = opts[:cache] || Cache.Memory.new
+    http  = opts[:http]  || HTTPotion
 
     Cache.write_through cache, url, fn ->
-      result = fetch(url)
+      result = fetch(url, http)
 
       cache_or_not = if cache?(result[:report][:status]), do: :cache, else: :dont_cache
 
@@ -11,8 +12,8 @@ defmodule LinkChecker.Checker do
     end
   end
 
-  defp fetch(url) do
-    response = HTTPotion.get(url, follow_redirects: true) # TODO: HEAD request first
+  defp fetch(url, http) do
+    response = http.get(url, follow_redirects: true) # TODO: HEAD request first
     {return_status, report_status} = extract_status(response)
     message = extract_message(response)
 
