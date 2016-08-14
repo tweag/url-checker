@@ -1,7 +1,7 @@
 defmodule LinkChecker.Checker do
-  def check(url), do: check(url, Cache.Memory.new)
+  def check(url, opts \\ []) do
+    cache = opts[:cache] || Cache.Memory.new
 
-  def check(url, cache) do
     Cache.write_through cache, url, fn ->
       result = fetch(url)
 
