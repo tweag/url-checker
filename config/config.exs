@@ -14,6 +14,9 @@ config :url_checker, URLChecker.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "MnwmXu9SCLLv8gGuG8KddweJxoH+62e53z0arJp/Xqai4OrQYcd+yfVjXDBzzIVB"
 
+config :url_checker, URLChecker.Redis,
+  System.get_env("REDIS_URL") || "redis://localhost"
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

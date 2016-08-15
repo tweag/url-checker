@@ -16,7 +16,7 @@ defmodule URLChecker.Redis do
     ]
 
     children = [
-      :poolboy.child_spec(:redis_pool, pool_opts, @redis_connection_params)
+      :poolboy.child_spec(:redis_pool, pool_opts, Application.get_env(:url_checker, __MODULE__))
     ]
 
     supervise(children, strategy: :one_for_one, name: __MODULE__)
