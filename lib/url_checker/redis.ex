@@ -1,4 +1,4 @@
-defmodule LinkChecker.Redis do
+defmodule URLChecker.Redis do
   def pool_size, do: 15 # connection limit for free tier on Heroku is 20
 
   def command(command) do

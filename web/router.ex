@@ -1,5 +1,5 @@
-defmodule LinkChecker.Router do
-  use LinkChecker.Web, :router
+defmodule URLChecker.Router do
+  use URLChecker.Web, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,7 +13,7 @@ defmodule LinkChecker.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", LinkChecker do
+  scope "/", URLChecker do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
@@ -22,7 +22,7 @@ defmodule LinkChecker.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", LinkChecker do
+  # scope "/api", URLChecker do
   #   pipe_through :api
   # end
 end

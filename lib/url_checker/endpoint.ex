@@ -1,14 +1,14 @@
-defmodule LinkChecker.Endpoint do
-  use Phoenix.Endpoint, otp_app: :link_checker
+defmodule URLChecker.Endpoint do
+  use Phoenix.Endpoint, otp_app: :url_checker
 
-  socket "/socket", LinkChecker.UserSocket
+  socket "/socket", URLChecker.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :link_checker, gzip: false,
+    at: "/", from: :url_checker, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
@@ -35,8 +35,8 @@ defmodule LinkChecker.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   plug Plug.Session,
     store: :cookie,
-    key: "_link_checker_key",
+    key: "_url_checker_key",
     signing_salt: "n5TgN1qP"
 
-  plug LinkChecker.Router
+  plug URLChecker.Router
 end

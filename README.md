@@ -1,4 +1,4 @@
-# LinkChecker
+# URLChecker
 
 To start your Phoenix app:
 

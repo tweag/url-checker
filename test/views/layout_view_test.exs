@@ -1,3 +1,3 @@
-defmodule LinkChecker.LayoutViewTest do
-  use LinkChecker.ConnCase, async: true
+defmodule URLChecker.LayoutViewTest do
+  use URLChecker.ConnCase, async: true
 end

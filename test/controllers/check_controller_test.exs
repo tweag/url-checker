@@ -1,8 +1,8 @@
-defmodule LinkChecker.CheckControllerTest do
-  use LinkChecker.ConnCase
+defmodule URLChecker.CheckControllerTest do
+  use URLChecker.ConnCase
 
   setup _tags do
-    LinkChecker.Redis.command ["FLUSHDB"]
+    URLChecker.Redis.command ["FLUSHDB"]
 
     :ok
   end
@@ -36,8 +36,8 @@ defmodule LinkChecker.CheckControllerTest do
 
     get conn, "/check", url: url, timestamp: "0"
 
-    assert {:found, _} = Cache.get({Cache.Redis, LinkChecker.Redis}, url)
-    assert {:found, _} = Cache.get({Cache.Redis, LinkChecker.Redis}, url, at_least: -1)
-    assert :not_found  = Cache.get({Cache.Redis, LinkChecker.Redis}, url, at_least: 1)
+    assert {:found, _} = Cache.get({Cache.Redis, URLChecker.Redis}, url)
+    assert {:found, _} = Cache.get({Cache.Redis, URLChecker.Redis}, url, at_least: -1)
+    assert :not_found  = Cache.get({Cache.Redis, URLChecker.Redis}, url, at_least: 1)
   end
 end

@@ -1,7 +1,7 @@
-defmodule LinkChecker.CheckerTest do
+defmodule URLChecker.CheckerTest do
   use ExUnit.Case
 
-  import LinkChecker.Checker
+  import URLChecker.Checker
 
   defp url_with_status(status), do: httpbin("status/#{status}")
 

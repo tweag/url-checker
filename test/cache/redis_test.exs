@@ -4,8 +4,8 @@ defmodule Cache.RedisTest do
   use CacheTest.Implementation
 
   setup _tags do
-    LinkChecker.Redis.command ["FLUSHDB"]
+    URLChecker.Redis.command ["FLUSHDB"]
 
-    {:ok, cache_module: Cache.Redis, cache: LinkChecker.Redis}
+    {:ok, cache_module: Cache.Redis, cache: URLChecker.Redis}
   end
 end

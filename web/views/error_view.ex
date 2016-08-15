@@ -1,5 +1,5 @@
-defmodule LinkChecker.ErrorView do
-  use LinkChecker.Web, :view
+defmodule URLChecker.ErrorView do
+  use URLChecker.Web, :view
 
   def render("404.html", _assigns) do
     "Page not found"

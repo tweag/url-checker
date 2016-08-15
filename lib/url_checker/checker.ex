@@ -1,4 +1,4 @@
-defmodule LinkChecker.Checker do
+defmodule URLChecker.Checker do
   def check(url, opts \\ []) do
     cache = opts[:cache] || Cache.Memory.new
     http  = opts[:http]  || HTTPotion

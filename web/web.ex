@@ -1,12 +1,12 @@
-defmodule LinkChecker.Web do
+defmodule URLChecker.Web do
   @moduledoc """
   A module that keeps using definitions for controllers,
   views and so on.
 
   This can be used in your application as:
 
-      use LinkChecker.Web, :controller
-      use LinkChecker.Web, :view
+      use URLChecker.Web, :controller
+      use URLChecker.Web, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -20,10 +20,10 @@ defmodule LinkChecker.Web do
     quote do
       use Phoenix.Controller
 
-      alias LinkChecker.Repo
+      alias URLChecker.Repo
 
-      import LinkChecker.Router.Helpers
-      import LinkChecker.Gettext
+      import URLChecker.Router.Helpers
+      import URLChecker.Gettext
     end
   end
 
@@ -37,9 +37,9 @@ defmodule LinkChecker.Web do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import LinkChecker.Router.Helpers
-      import LinkChecker.ErrorHelpers
-      import LinkChecker.Gettext
+      import URLChecker.Router.Helpers
+      import URLChecker.ErrorHelpers
+      import URLChecker.Gettext
     end
   end
 
@@ -53,8 +53,8 @@ defmodule LinkChecker.Web do
     quote do
       use Phoenix.Channel
 
-      alias LinkChecker.Repo
-      import LinkChecker.Gettext
+      alias URLChecker.Repo
+      import URLChecker.Gettext
     end
   end
 

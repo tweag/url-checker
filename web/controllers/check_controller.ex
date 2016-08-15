@@ -1,12 +1,12 @@
-defmodule LinkChecker.CheckController do
-  use LinkChecker.Web, :controller
+defmodule URLChecker.CheckController do
+  use URLChecker.Web, :controller
 
   def index(conn, %{ "url" => url } = params) do
     %{return: return_status, report: report} =
-      LinkChecker.Checker.check(url,
+      URLChecker.Checker.check(url,
        timestamp: parse_timestamp(params["timestamp"]),
        at_least:  parse_timestamp(params["at_least"]),
-       cache: {Cache.Redis, LinkChecker.Redis})
+       cache: {Cache.Redis, URLChecker.Redis})
 
     conn
     |> put_status(return_status)

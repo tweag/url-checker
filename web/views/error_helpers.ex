@@ -1,4 +1,4 @@
-defmodule LinkChecker.ErrorHelpers do
+defmodule URLChecker.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -32,9 +32,9 @@ defmodule LinkChecker.ErrorHelpers do
     #     dgettext "errors", "is invalid"
     #
     if count = opts[:count] do
-      Gettext.dngettext(LinkChecker.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(URLChecker.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(LinkChecker.Gettext, "errors", msg, opts)
+      Gettext.dgettext(URLChecker.Gettext, "errors", msg, opts)
     end
   end
 end

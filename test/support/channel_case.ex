@@ -1,4 +1,4 @@
-defmodule LinkChecker.ChannelCase do
+defmodule URLChecker.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,7 +21,7 @@ defmodule LinkChecker.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint LinkChecker.Endpoint
+      @endpoint URLChecker.Endpoint
     end
   end
 

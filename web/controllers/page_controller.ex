@@ -1,5 +1,5 @@
-defmodule LinkChecker.PageController do
-  use LinkChecker.Web, :controller
+defmodule URLChecker.PageController do
+  use URLChecker.Web, :controller
 
   def index(conn, _params) do
     render conn, "index.html"

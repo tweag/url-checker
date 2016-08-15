@@ -6,15 +6,15 @@
 use Mix.Config
 
 # General application configuration
-config :link_checker,
-  ecto_repos: [LinkChecker.Repo]
+config :url_checker,
+  ecto_repos: [URLChecker.Repo]
 
 # Configures the endpoint
-config :link_checker, LinkChecker.Endpoint,
+config :url_checker, URLChecker.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "MnwmXu9SCLLv8gGuG8KddweJxoH+62e53z0arJp/Xqai4OrQYcd+yfVjXDBzzIVB",
-  render_errors: [view: LinkChecker.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: LinkChecker.PubSub,
+  render_errors: [view: URLChecker.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: URLChecker.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger

@@ -1,3 +1,3 @@
-defmodule LinkChecker.PageViewTest do
-  use LinkChecker.ConnCase, async: true
+defmodule URLChecker.PageViewTest do
+  use URLChecker.ConnCase, async: true
 end

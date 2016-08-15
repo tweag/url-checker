@@ -1,3 +1,3 @@
-defmodule LinkChecker.LayoutView do
-  use LinkChecker.Web, :view
+defmodule URLChecker.LayoutView do
+  use URLChecker.Web, :view
 end
