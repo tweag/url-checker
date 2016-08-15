@@ -13,7 +13,7 @@ defmodule LinkChecker.Checker do
   end
 
   defp fetch(url, http) do
-    response = http.get(url, follow_redirects: true) # TODO: HEAD request first
+    response = http.get(url, follow_redirects: true)
     {return_status, report_status} = extract_status(response)
     message = extract_message(response)
 
