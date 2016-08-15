@@ -18,8 +18,7 @@ defmodule URLChecker.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {URLChecker, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :httpotion]]
+     applications: [:phoenix, :cowboy, :logger, :gettext, :httpotion]]
   end
 
   # Specifies which paths to compile per environment.
@@ -35,9 +34,6 @@ defmodule URLChecker.Mixfile do
       {:gettext, "~> 0.11"},
       {:httpotion, "~> 3.0.0"},
       {:phoenix, "~> 1.2.0"},
-      {:phoenix_html, "~> 2.6"},
-      {:phoenix_live_reload, "~> 1.0", only: :dev},
-      {:phoenix_pubsub, "~> 1.0"},
       {:redix, "~> 0.4.0"},
     ]
   end

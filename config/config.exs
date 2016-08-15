@@ -12,10 +12,7 @@ config :url_checker,
 # Configures the endpoint
 config :url_checker, URLChecker.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "MnwmXu9SCLLv8gGuG8KddweJxoH+62e53z0arJp/Xqai4OrQYcd+yfVjXDBzzIVB",
-  render_errors: [view: URLChecker.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: URLChecker.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  secret_key_base: "MnwmXu9SCLLv8gGuG8KddweJxoH+62e53z0arJp/Xqai4OrQYcd+yfVjXDBzzIVB"
 
 # Configures Elixir's Logger
 config :logger, :console,
