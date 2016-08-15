@@ -48,7 +48,7 @@ defmodule LinkChecker.CheckerTest do
   end
 
   test "a host that does not exist returns 404" do
-    result = check("http://doesnotexist-3453532342435.com")
+    result = check("http://localhost:2")
 
     assert result[:return] == 404
     assert result[:report][:status] == 0
