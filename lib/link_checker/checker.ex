@@ -28,7 +28,7 @@ defmodule LinkChecker.Checker do
   end
 
   defp cache?(status) do
-    200 <= status && status <= 299 && status != 202
+    status in 200..299 && status != 202
   end
 
   defp extract_status(%{ status_code: 202 }),         do: { 404, 202 }
