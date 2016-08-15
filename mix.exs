@@ -34,6 +34,7 @@ defmodule URLChecker.Mixfile do
       {:gettext, "~> 0.11"},
       {:httpotion, "~> 3.0.0"},
       {:phoenix, "~> 1.2.0"},
+      {:poolboy, "~> 1.5"},
       {:redix, "~> 0.4.0"},
     ]
   end

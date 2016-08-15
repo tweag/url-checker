@@ -1,11 +1,33 @@
 defmodule URLChecker.Redis do
-  def pool_size, do: 15 # connection limit for free tier on Heroku is 20
+  use Supervisor
+
+  @redis_connection_params host: "localhost"
+
+  def start_link do
+    Supervisor.start_link(__MODULE__, [])
+  end
+
+  def init([]) do
+    pool_opts = [
+      name: {:local, :redis_pool},
+      worker_module: Redix,
+      size: 15, # connection limit for free tier on Heroku is 20
+      max_overflow: 5
+    ]
+
+    children = [
+      :poolboy.child_spec(:redis_pool, pool_opts, @redis_connection_params)
+    ]
+
+    supervise(children, strategy: :one_for_one, name: __MODULE__)
+  end
 
   def command(command) do
-    Redix.command(:"redis_#{random_index}", command)
+    :poolboy.transaction(:redis_pool, &Redix.command(&1, command))
   end
 
-  defp random_index do
-    rem(System.unique_integer([:positive]), pool_size)
+  def pipeline(commands) do
+    :poolboy.transaction(:redis_pool, &Redix.pipeline(&1, commands))
   end
 end
+
