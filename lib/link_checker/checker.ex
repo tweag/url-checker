@@ -3,7 +3,7 @@ defmodule LinkChecker.Checker do
     cache = opts[:cache] || Cache.Memory.new
     http  = opts[:http]  || HTTPotion
 
-    Cache.write_through cache, url, fn ->
+    Cache.write_through cache, url, [timestamp: opts[:timestamp], at_least: opts[:at_least]], fn ->
       result = fetch(url, http)
 
       cache_or_not = if cache?(result[:report][:status]), do: :cache, else: :dont_cache
