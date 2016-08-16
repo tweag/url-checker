@@ -13,7 +13,12 @@ defmodule URLChecker.Checker do
   end
 
   defp fetch(url, http) do
-    response = http.get(url, follow_redirects: true)
+    response = http.get(
+      url,
+      follow_redirects: true,
+      headers: ["User-Agent": "Mozilla/5.0 (compatible; URL Checker/0.0.1; +https://github.com/promptworks/url-checker)"]
+    )
+
     {return_status, report_status} = extract_status(response)
     message = extract_message(response)
 

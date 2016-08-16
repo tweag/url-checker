@@ -85,4 +85,9 @@ defmodule URLChecker.CheckerTest do
     {:found, _} = Cache.get(cache, good_url)
     :not_found  = Cache.get(cache, bad_url)
   end
+
+  test "uses a User Agent that does not set off alarms for sites" do
+    result = check("https://2013.nashville.wordcamp.org/")
+    assert result[:report][:status] == 200
+  end
 end
