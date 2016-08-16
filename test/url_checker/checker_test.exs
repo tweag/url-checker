@@ -36,8 +36,8 @@ defmodule URLChecker.CheckerTest do
     assert result[:report][:status] == 202
   end
 
-  test "4xx and 5xx codes get passed through" do
-    for range <- [400..431, 500..511, 520..526] do
+  test "Most codes get passed through" do
+    for range <- [400..431, 500..511, 520..526, [999]] do
       for status <- range do
         result = check(url_with_status(status))
 
