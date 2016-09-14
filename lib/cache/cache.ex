@@ -12,7 +12,6 @@ defmodule Cache do
   end
 
   defp stale?(_, nil),           do: false
-  defp stale?(nil, nil),         do: false
   defp stale?(nil, _),           do: true
   defp stale?(cached, at_least), do: cached < at_least
 
