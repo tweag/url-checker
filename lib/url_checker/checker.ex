@@ -16,7 +16,7 @@ defmodule URLChecker.Checker do
     response = http.get(
       url,
       follow_redirects: true,
-      headers: ["User-Agent": "Mozilla/5.0 (compatible; URL Checker/0.0.1; +https://github.com/promptworks/url-checker)"]
+      headers: ["User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36"]
     )
 
     {return_status, report_status} = extract_status(response)
